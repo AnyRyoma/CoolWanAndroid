@@ -1,0 +1,108 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'bugly'
+
+android {
+
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    defaultConfig {
+        applicationId "com.example.coolwanandroid"
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        //集成Bugly Ndk需要
+        ndk {
+            // 设置支持的SO库架构
+            abiFilters 'armeabi' //, 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+        }
+
+    }
+
+    //Bugly符号表插件
+    bugly {
+        appId = 'eb2d4b003b' // 注册时分配的App ID
+        appKey = '3b31bf09-b927-490a-a9b7-39a997769c8e' // 注册时分配的App Key
+    }
+
+
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            //移除无用的resource文件 设置为true可能为导致闪退
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+}
+
+dependencies {
+
+    //base
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation rootProject.ext.dependencies["appcompat-v7"]
+    implementation rootProject.ext.dependencies["constraintLayout"]
+    implementation rootProject.ext.dependencies["design"]
+
+    //test
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    testImplementation rootProject.ext.dependencies["junit"]
+    androidTestImplementation rootProject.ext.dependencies["runner"]
+    androidTestImplementation rootProject.ext.dependencies["espresso"]
+
+    //network
+    implementation rootProject.ext.dependencies["retrofit"]
+    implementation rootProject.ext.dependencies["retrofitGsonConvert"]
+    implementation rootProject.ext.dependencies["retrofitRxjava2Adapter"]
+
+    //rxjava2
+    implementation rootProject.ext.dependencies["rxava2"]
+    implementation rootProject.ext.dependencies["rxAndroid"]
+
+    //dagger+黄油刀
+    implementation rootProject.ext.dependencies["dagger2"]
+    annotationProcessor rootProject.ext.dependencies["dagger2Compiler"]
+    implementation rootProject.ext.dependencies["butterKnife"]
+    annotationProcessor rootProject.ext.dependencies["butterKnifeCompiler"]
+
+    //ui
+    implementation rootProject.ext.dependencies["banner"]
+    implementation rootProject.ext.dependencies["gilde"]
+    annotationProcessor rootProject.ext.dependencies["gildeCompiler"]
+    implementation rootProject.ext.dependencies["baseAdapter"]
+    implementation rootProject.ext.dependencies["smartrefresh"]
+    implementation rootProject.ext.dependencies["agentWeb"]  //文章详细
+    implementation rootProject.ext.dependencies["flycoTabLayout_Lib"]
+    implementation rootProject.ext.dependencies["circleImage"] //登陆圆形头像
+    implementation rootProject.ext.dependencies["fButton"]  //登陆按钮
+    implementation rootProject.ext.dependencies["grav"]  //登陆动态圆点
+    implementation rootProject.ext.dependencies["flowLayout"]  //搜索热搜流式布局
+    implementation rootProject.ext.dependencies["switchButton"]
+    implementation rootProject.ext.dependencies["smartrefreshHeader"]
+    implementation rootProject.ext.dependencies["ripple"]//触摸反馈
+    implementation rootProject.ext.dependencies["speedDialog"]
+
+    //数据库
+    implementation rootProject.ext.dependencies["litePal"]
+    //bugly腾讯异常收集
+    implementation rootProject.ext.dependencies["buglySDK"]
+    implementation rootProject.ext.dependencies["buglyNDK"]
+
+
+    //leakCanary
+    debugImplementation rootProject.ext.dependencies["leakCanaryDebug"]
+    releaseImplementation rootProject.ext.dependencies["leakCanaryRelease"]
+    debugImplementation rootProject.ext.dependencies["leakCanaryDebugSupport"]
+
+}

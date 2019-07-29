@@ -1,0 +1,112 @@
+ext {
+    android = [
+            compileSdkVersion: 28,
+            minSdkVersion    : 17,
+            targetSdkVersion : 28,
+            versionCode      : 3,
+            versionName      : "1.2",
+    ]
+
+    version = [
+            //base
+            SupportLibraryVersion  : "28.0.0",
+            ConstraintLayoutVersion: "1.1.3",
+            MarterialDesignVersion : "1.0.0",
+
+            //test
+            JunitVersion           : "4.12",
+            RunnerVersion          : "1.0.2",
+            EspressoVersion        : "3.0.2",
+
+            //黄油刀
+            ButterKnifeVersion     : '8.4.0',
+
+            //dagger2
+            Dagger2Version         : '2.14.1',
+
+            //rxjava2
+            RxJava2Version         : '2.0.1',
+
+            //network
+            RetrofitVersion        : '2.4.0',
+
+            //ui
+            Banner                 : '1.4.10',
+            Gilde                  : "4.8.0",
+            BaseAdapterVersion     : "2.9.40",
+            SmartrefreshVersion    : "1.1.0-alpha-14",
+            AgentWebVersion        : "4.0.2",
+            CircleImageVersion     : '2.2.0',
+            FButton                : "1.0.5",
+            SpeedDialog            : 'support-1.0.0',
+
+            //数据库
+            LitePal                : "3.0.0",
+
+            //leakCanary内存泄漏检测
+            LeakCanary             : '1.6.3',
+
+
+    ]
+
+    dependencies = [
+            //base
+            "appcompat-v7"          : "com.android.support:appcompat-v7:${version.SupportLibraryVersion}",
+            "constraintLayout"      : "com.android.support.constraint:constraint-layout:${version.ConstraintLayoutVersion}",
+            "cardview-v7"           : "com.android.support:cardview-v7:${version.SupportLibraryVersion}",
+            "design"                : "com.android.support:design:${version.SupportLibraryVersion}",
+
+            //network
+            "retrofit"              : "com.squareup.retrofit2:retrofit:${version.RetrofitVersion}",
+            "retrofitGsonConvert"   : "com.squareup.retrofit2:converter-gson:${version.RetrofitVersion}",
+            "retrofitRxjava2Adapter": "com.squareup.retrofit2:adapter-rxjava2:${version.RetrofitVersion}",
+
+            //rxjava2
+            "rxava2"                : "io.reactivex.rxjava2:rxjava:${version.RxJava2Version}",
+            "rxAndroid"             : "io.reactivex.rxjava2:rxandroid:${version.RxJava2Version}",
+
+            //黄油刀
+            "butterKnife"           : "com.jakewharton:butterknife:${version.ButterKnifeVersion}",
+            "butterKnifeCompiler"   : "com.jakewharton:butterknife-compiler:${version.ButterKnifeVersion}",
+
+            //dagger
+            "dagger2"               : "com.google.dagger:dagger:${version.Dagger2Version}",
+            "dagger2Compiler"       : "com.google.dagger:dagger-compiler:${version.Dagger2Version}",
+
+            //ui
+            "banner"                : "com.youth.banner:banner:${version.Banner}",
+            "gilde"                 : "com.github.bumptech.glide:glide:${version.Gilde}",
+            "gildeCompiler"         : "com.github.bumptech.glide:compiler:${version.Gilde}",
+            "baseAdapter"           : "com.github.CymChad:BaseRecyclerViewAdapterHelper:${version.BaseAdapterVersion}",
+            "smartrefresh"          : "com.scwang.smartrefresh:SmartRefreshLayout:${version.SmartrefreshVersion}",
+            "smartrefreshHeader"    : "com.scwang.smartrefresh:SmartRefreshHeader:${version.SmartrefreshVersion}",
+            "agentWeb"              : "com.just.agentweb:agentweb:${version.AgentWebVersion}",
+            "flycoTabLayout_Lib"    : "com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar",
+            "circleImage"           : "de.hdodenhof:circleimageview:${version.CircleImageVersion}",
+            "fButton"               : "info.hoang8f:fbutton:${version.FButton}",
+            "grav"                  : "com.github.glomadrian:Grav:1.1",
+            "flowLayout"            : "com.hyman:flowlayout-lib:1.1.2",
+            "switchButton"          : "com.github.zcweng:switch-button:0.0.3@aar",
+            "ripple"                : 'com.patrickpissurno:ripple-effect:1.3.1',
+             speedDialog           : "com.github.jsyjst:Yuan-SpeedDialog:${version.SpeedDialog}",
+
+
+            //数据库
+            litePal                 : "org.litepal.android:java:${version.LitePal}",
+
+            //test
+            "junit"                 : "junit:junit:${version.JunitVersion}",
+            "runner"                : "com.android.support.test:runner:${version.RunnerVersion}",
+            "espresso"              : "com.android.support.test.espresso:espresso-core:${version.EspressoVersion}",
+
+            //bugly
+            "buglySDK"              : "com.tencent.bugly:crashreport:latest.release",
+            "buglyNDK"              : 'com.tencent.bugly:nativecrashreport:latest.release',
+
+            //LeakCanary
+            "leakCanaryDebug"       : "com.squareup.leakcanary:leakcanary-android:${version.LeakCanary}",
+            "leakCanaryRelease"     : "com.squareup.leakcanary:leakcanary-android-no-op:${version.LeakCanary}",
+            "leakCanaryDebugSupport": "com.squareup.leakcanary:leakcanary-support-fragment:${version.LeakCanary}",
+
+    ]
+}

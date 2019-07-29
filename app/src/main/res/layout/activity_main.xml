@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.coolwanandroid.view.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <FrameLayout
+            android:id="@+id/frameContain"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            tools:ignore="PrivateResource">
+
+        </FrameLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_01"
+            android:layout_above="@+id/BottomBnv"
+            android:background="@color/black_trans" />
+
+        <android.support.design.widget.BottomNavigationView
+            android:id="@+id/BottomBnv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:clickable="true"
+            android:focusable="true"
+            app:elevation="@dimen/dp_5"
+            app:itemBackground="@color/bottomNavBackground"
+            app:itemTextColor="@drawable/nav_btm_color"
+            app:labelVisibilityMode="labeled"
+            app:menu="@menu/bottom_nav_main" />
+
+    </RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>

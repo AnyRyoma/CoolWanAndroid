@@ -1,0 +1,123 @@
+<resources>
+    <string name="app_name">CoolWanAndroid</string>
+
+    //leader
+    <string name="lead_text">玩安卓，玩出精彩</string>
+
+    //main
+    <string name="search_text">发现更多干货</string>
+    <string name="home">首页</string>
+    <string name="system">知识体系</string>
+    <string name="wx">公众号</string>
+    <string name="project">项目</string>
+    <string name="person">我的</string>
+
+
+    //error
+    <string name="error_unknown">未知错误</string>
+    <string name="error_network">当前网络不可用，请检查网络设置</string>
+    <string name="error_timeout">连接超时，请重试</string>
+    <string name="error_http">网络错误</string>r
+    <string name="error_parse">解析错误</string>
+    <string name="error_view_network">网络不给力</string>
+    <string name="error_view_retry">重试</string>
+
+    //article
+    <string name="article_share">分享</string>
+    <string name="article_collect">收藏</string>
+    <string name="article_un_collect">取消收藏</string>
+    <string name="article_browser">用系统浏览器打开</string>
+    <string name="article_browser_error">该链接无法使用浏览器打开</string>
+    <string name="article_share_link">来自WanAndroid的分享：</string>
+    <string name="article_share_title">分享到</string>
+    <string name="article_share_error">分享失败</string>
+
+    //person
+    <string name="person_login">登录</string>
+    <string name="person_collection">我的收藏</string>
+    <string name="person_setting">设置</string>
+    <string name="person_about">关于我们</string>
+    <string name="person_user_name">用户名</string>
+    <string name="person_password">密码</string>
+    <string name="person_repeat_password">确认密码</string>
+    <string name="person_no_register">没有账号？注册</string>
+    <string name="person_register_finish">已有账号？登录</string>
+    <string name="person_register">注册</string>
+    <string name="person_register_success">注册成功</string>
+    <string name="person_login_success">登录成功</string>
+    <string name="login_username_empty">用户名不能为空</string>
+    <string name="login_password_empty">密码不能为空</string>
+    <string name="person_logout">退出登录</string>
+
+    //collect
+    <string name="collect_success">已收藏</string>
+    <string name="uncollect_success">已取消收藏</string>
+    <string name="first_login">请先登录</string>
+    <string name="collection_empty">空空如也，赶紧去收藏干货吧@_@!</string>
+
+    //search
+    <string name="search">搜索</string>
+    <string name="share_edit">shareEdit</string>
+    <string name="share_image">shareImage</string>
+    <string name="search_hot">热搜</string>
+    <string name="search_history">搜索历史</string>
+    <string name="search_first_write">请输入关键字@_@!</string>
+    <string name="search_clear">清空</string>
+    <string name="search_history_empty">快来搜索干货吧@_@!</string>
+    <string name="search_empty">暂无数据，换个关键字查询吧@_@!</string>
+
+
+    //other
+    <string name="open_browser_unknown">找不到指定应用打开浏览器</string>
+    <string name="share_unknown">找不到指定应用来分享</string>
+    <string name="share_email_unknown">找不到指定的应用来发送邮件</string>
+
+    //dialog
+    <string name="dialog_sure">确定</string>
+    <string name="dialog_cancel">取消</string>
+    <string name="dialog_title">退出登录</string>
+    <string name="dialog_text">你确定要退出登录吗？</string>
+    <string name="dialog_delete_title">删除</string>
+    <string name="dialog_delete_text">你确定要删除全部搜索的历史记录吗？</string>
+
+    //versionDialog
+    <string name="dialog_version_name">版本号:  </string>
+    <string name="dialog_version_size">版本大小:  </string>
+    <string name="dialog_version_content">更新内容:  </string>
+    <string name="dialog_version_update">有版本更新啦!</string>
+    <string name="dialog_version_later">稍后更新</string>
+    <string name="dialog_version_now">马上更新</string>
+    //download
+    <string name="download_ing">新版本下载中</string>
+
+    //setting
+    <string name="setting_night_type">夜间模式</string>
+    <string name="setting_no_image_type">无图模式</string>
+    <string name="setting_auto_cache">自动缓存</string>
+    <string name="setting_basic">基本设置</string>
+    <string name="setting_other">其他设置</string>
+    <string name="setting_feed_back">意见反馈</string>
+    <string name="setting_send_to">发送给</string>
+    <string name="setting_clear_cache">清空缓存</string>
+    <string name="setting_clear_cache_success">已清空缓存</string>
+    <string name="setting_empty_cache">0K</string>
+    <string name="setting_check_version">版本</string>
+
+    //about
+    <string name="about_us">关于我们</string>
+    <string name="about_us_text"> <![CDATA[
+        <h2>网站内容</h2>
+        <p>\t\t\t\t本网站每天新增20~30篇优质文章，并加入到现有分类中，力求整理出一份优质而又详尽的知识体系，闲暇时间不妨上来学习下知识；除此以外，并为大家提供平时开发过程中常用的工具以及常用的网址导航。</p>
+        <p>\t\t\t\t当然这只是我们目前的功能，未来我们将提供更多更加便捷的功能…</p>
+        <p>\t\t\t\t如果您有任何好的建议：</p>
+        \t\t\t\t\t关于网站排版
+        <br/>\t\t\t\t\t关于新增常用网址以及工具
+        <br/>\t\t\t\t\t未来你希望增加的功能等
+        <p>\t\t\t\t可以在<a href="https://github.com/hongyangAndroid/wanandroid" target="_blank">https://github.com/hongyangAndroid/xueandroid</a>项目中以issue的形式提出，我将及时跟进。</p>
+        <p>\t\t\t\t如果您希望长期关注本站，可以加入我们的QQ群：<b>591683946</b></p>
+        <h2>源码位置</h2>
+        <p>\t\t\t\t本软件开源，如果你发现任何错误，不要犹豫，马上点击<a href="https://github.com/eco-ryoma/CoolWanAndroid" target="_blank">GitHub</a>，在上面发起<b>issue</b>或者提交<b>pull request</b>。</p>
+        <h2>更新日记</h2>
+        <p>\t\t\t\t想了解更多更新详情，请点击<a href="https://github.com/eco-ryoma/CoolWanAndroid/releases" target="_blank">Here</a></p>
+        ]]></string>
+</resources>

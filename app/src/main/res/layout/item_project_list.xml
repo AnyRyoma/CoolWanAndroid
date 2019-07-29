@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/selector_pressed_ripple"
+    android:paddingStart="@dimen/dp_15"
+    android:paddingTop="@dimen/dp_10"
+    android:paddingEnd="@dimen/dp_15">
+
+    <ImageView
+        android:id="@+id/projectPicIv"
+        android:layout_width="@dimen/dp_120"
+        android:layout_height="@dimen/dp_200"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:scaleType="centerCrop"
+        tools:ignore="ContentDescription"
+        tools:src="@drawable/test_jay" />
+
+    <TextView
+        android:id="@+id/projectTitleTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="@dimen/dp_10"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="@dimen/dp_10"
+        android:layout_toRightOf="@+id/projectPicIv"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/textColor"
+        android:textSize="16sp"
+        tools:text="一个可以试试复赛和fish覅好私服hi哦好hi地覅iuidii家属及嗲" />
+
+    <TextView
+        android:id="@+id/projectDecsTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/projectLoveIv"
+        android:layout_below="@+id/projectTitleTv"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_20"
+        android:layout_marginEnd="@dimen/dp_10"
+        android:layout_toRightOf="@id/projectPicIv"
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:textColor="@android:color/tertiary_text_light"
+        android:textSize="14sp"
+        tools:text="APP信息是一个免费的工具应用. 它有以下功能特点:\r\n\r\n查看已安装的app信息.\r\n查看未安装的apk信息.\r\n导出已安装的app应用的apk文件.\r\n复制apk的签名信息到剪切板." />
+
+    <TextView
+        android:id="@+id/projectAuthorTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/projectLoveIv"
+        android:layout_alignBottom="@+id/projectLoveIv"
+        android:layout_marginStart="@dimen/dp_10"
+        android:layout_toRightOf="@+id/projectPicIv"
+        android:gravity="center"
+        tools:text="kingwang666" />
+
+    <TextView
+        android:id="@+id/projectDateTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/projectLoveIv"
+        android:layout_alignBottom="@+id/projectLoveIv"
+        android:layout_marginStart="@dimen/dp_10"
+        android:layout_marginEnd="@dimen/dp_5"
+        android:layout_toRightOf="@+id/projectAuthorTv"
+        android:gravity="center"
+        tools:text="17小时前" />
+
+    <ImageView
+        android:id="@+id/projectLoveIv"
+        android:layout_width="@dimen/dp_43"
+        android:layout_height="@dimen/dp_43"
+        android:layout_alignBottom="@+id/projectPicIv"
+        android:layout_alignParentEnd="true"
+        android:padding="@dimen/dp_10"
+        android:src="@drawable/selector_collect"
+        tools:ignore="ContentDescription" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_01"
+        android:layout_below="@+id/projectPicIv"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@color/black_trans" />
+
+</RelativeLayout>
