@@ -33,6 +33,7 @@ public class FirstSystemAdapter extends BaseQuickAdapter<FirstSystem, BaseViewHo
         for (FirstSystem.ChildrenBean secondSystem : item.getChildren()) {
             secondSystemText += secondSystem.getName() + "   ";
         }
+
         helper.setText(R.id.systemItemFirstTv, item.getName())
                 .setText(R.id.systemItemSecondTv, secondSystemText);
     }

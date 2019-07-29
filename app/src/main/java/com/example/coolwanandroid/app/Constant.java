@@ -77,5 +77,5 @@ public class Constant {
     public static final String KEY_APK_URL = "apk_url";
 
     //bugly
-    public static final String BUGLY_APP_ID = "eb2d4b003b";
+    public static final String BUGLY_APP_ID = "0fbd1ce322";
 }

@@ -31,13 +31,14 @@ import org.litepal.LitePal;
 public class App extends Application {
     private static App mApp;
     private static AppComponent mAppComponent;
-    private RefWatcher mRefWatcher;//leakCanary内存泄漏监控
+    //leakCanary内存泄漏监控
+    private RefWatcher mRefWatcher;
 
     //static代码段可以防止内存泄露
     //static代码段可以防止内存泄露
     static {
-        AppCompatDelegate.setDefaultNightMode(
-                AppCompatDelegate.MODE_NIGHT_NO);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
         //设置全局的Header构建器
         SmartRefreshLayout.setDefaultRefreshHeaderCreator(((context, layout) -> {
             layout.setPrimaryColorsId(R.color.gray, R.color.colorNavNormal);//全局设置主题颜色
@@ -88,6 +89,9 @@ public class App extends Application {
         return application.mRefWatcher;
     }
 
+    /**
+     * 设置bugly
+     */
     private void initBugly() {
         Context context = getApplicationContext();
         // 获取当前包名
@@ -102,6 +106,9 @@ public class App extends Application {
 
     }
 
+    /**
+     * 初始化LeakCanary
+     */
     private void initLeakCanary() {
         if (LeakCanary.isInAnalyzerProcess(this)) {
             return;

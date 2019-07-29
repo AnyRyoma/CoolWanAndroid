@@ -23,8 +23,8 @@ android {
 
     //Bugly符号表插件
     bugly {
-        appId = 'eb2d4b003b' // 注册时分配的App ID
-        appKey = '3b31bf09-b927-490a-a9b7-39a997769c8e' // 注册时分配的App Key
+        appId = '0fbd1ce322' // 注册时分配的App ID
+        appKey = 'ff177e91-45fd-4003-a5dd-5101220002b8' // 注册时分配的App Key
     }
 
 

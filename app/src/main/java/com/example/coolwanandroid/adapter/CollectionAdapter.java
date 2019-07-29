@@ -19,6 +19,12 @@ import java.util.List;
  */
 public class CollectionAdapter extends BaseQuickAdapter<Collection, BaseViewHolder> {
 
+    /**
+     * 收藏 适配器
+     *
+     * @param layoutResId 布局id
+     * @param data        数据list
+     */
     public CollectionAdapter(int layoutResId, @Nullable List<Collection> data) {
         super(layoutResId, data);
     }
@@ -28,6 +34,7 @@ public class CollectionAdapter extends BaseQuickAdapter<Collection, BaseViewHold
         if (item == null) {
             return;
         }
+
         helper.setText(R.id.homeItemAuthorTv, item.getAuthor())
                 .setText(R.id.homeItemDateTv, item.getNiceDate())
                 .setText(R.id.homeItemTitleTv, item.getTitle())
