@@ -37,7 +37,7 @@ public class UpdateApkReceiver extends BroadcastReceiver {
             long downloadApkId = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1L);
             long saveApkId = App.getAppComponent().getDataModel().getDownloadId();
             if (downloadApkId == saveApkId) {
-                checkDownloadStatus(context,downloadApkId);
+                checkDownloadStatus(context, downloadApkId);
             }
             context.stopService(new Intent(context, UpdateApkService.class));
         }
@@ -56,12 +56,14 @@ public class UpdateApkReceiver extends BroadcastReceiver {
             switch (status) {
                 case DownloadManager.STATUS_SUCCESSFUL:
                     LogUtil.d(LogUtil.TAG_COMMON, "下载完成！");
-                    installApk(context,mDownloadManager.getUriForDownloadedFile(downloadId));
+                    installApk(context, mDownloadManager.getUriForDownloadedFile(downloadId));
                     break;
-                case DownloadManager.STATUS_FAILED://下载失败
+                //下载失败
+                case DownloadManager.STATUS_FAILED:
                     LogUtil.d(LogUtil.TAG_COMMON, "下载失败.....");
                     break;
-                case DownloadManager.STATUS_RUNNING://正在下载
+                //正在下载
+                case DownloadManager.STATUS_RUNNING:
                     LogUtil.d(LogUtil.TAG_COMMON, "正在下载.....");
                     break;
                 default:
@@ -71,20 +73,25 @@ public class UpdateApkReceiver extends BroadcastReceiver {
     }
 
 
-    // 通过Intent安装APK文件
-    private void installApk(Context context,Uri uri){
-        LogUtil.d(LogUtil.TAG_COMMON,"安装程序"+uri);
+    /**
+     * 通过Intent安装APK文件
+     *
+     * @param context
+     * @param uri
+     */
+    private void installApk(Context context, Uri uri) {
+        LogUtil.d(LogUtil.TAG_COMMON, "安装程序" + uri);
         File file = new File(Constant.PATH_APK_DOWNLOAD_MANAGER);
         Intent intent = new Intent("android.intent.action.VIEW");
         //适配N
-        if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.N){
-            Uri contentUrl = FileProvider.getUriForFile(context,"com.example.yuan_wanandroid.fileProvider",file);
-            Log.d(LogUtil.TAG_COMMON, "installApk: "+contentUrl);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            Uri contentUrl = FileProvider.getUriForFile(context, "com.example.coolwanandroid.fileProvider", file);
+            Log.d(LogUtil.TAG_COMMON, "installApk: " + contentUrl);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-            intent.setDataAndType(contentUrl,"application/vnd.android.package-archive");
-        }else{
-            intent.setDataAndType(Uri.fromFile(file),"application/vnd.android.package-archive");
+            intent.setDataAndType(contentUrl, "application/vnd.android.package-archive");
+        } else {
+            intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         }
         context.startActivity(intent);

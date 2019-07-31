@@ -22,13 +22,19 @@ public interface CollectApis {
     /**
      * 收藏站内文章
      * http://www.wanandroid.com/lg/collect/1165/json
+     *
+     * @param id 文章id
+     * @return BaseResponse
      */
     @POST("lg/collect/{id}/json")
     Observable<BaseResponse> collectArticles(@Path("id") int id);
 
     /**
-     * 文章列表取消收藏
+     * 文章取消收藏
      * http://www.wanandroid.com/lg/uncollect_originId/2333/json
+     *
+     * @param id 文章id
+     * @return BaseResponse
      */
     @POST("lg/uncollect_originId/{id}/json")
     Observable<BaseResponse> unCollectArticles(@Path("id") int id);
@@ -36,6 +42,9 @@ public interface CollectApis {
     /**
      * 获取收藏列表
      * http://www.wanandroid.com/lg/collect/list/{pageNum}/json
+     *
+     * @param pageNum 页面
+     * @return BaseResponse<Collections>
      */
     @GET("lg/collect/list/{pageNum}/json")
     Observable<BaseResponse<Collections>> getCollectionsData(@Path("pageNum") int pageNum);
@@ -43,10 +52,13 @@ public interface CollectApis {
     /**
      * 收藏列表下取消收藏
      * http://www.wanandroid.com/lg/uncollect/2805/json
+     *
+     * @param id       收藏在我的收藏列表的id
+     * @param originId 收藏在原始文章列表的id)
+     * @return BaseResponse
      */
     @POST("lg/uncollect/{id}/json")
     @FormUrlEncoded
-    Observable<BaseResponse> unCollection(@Path("id") int id,//收藏在我的收藏列表的id
-                                          @Field("originId") int originId);//收藏在原始文章列表的id);
-
+    Observable<BaseResponse> unCollection(@Path("id") int id,
+                                          @Field("originId") int originId);
 }

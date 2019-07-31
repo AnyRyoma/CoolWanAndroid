@@ -11,12 +11,9 @@ package com.example.coolwanandroid.model.entity;
 public class BaseResponse<T> {
     /**
      * data : []
-     * errorCode : 0
+     * errorCode : 0代表执行成功，非0都为失败 -1001 代表登录失效，需要重新登录。
      * errorMsg :
      */
-
-    //errorCode = 0代表执行成功，非0都为失败
-    //errorCode = -1001 代表登录失效，需要重新登录。
     private int errorCode;
     private String errorMsg;
     private T data;
