@@ -48,7 +48,7 @@ public class ShareUtils {
     /**
      * 打开浏览器
      */
-    public static void openBrowser(Context context, String address){
+    public static void openBrowser(Context context, String address) {
         if (TextUtils.isEmpty(address) || address.startsWith("file://")) {
             CommonUtils.toastShow(context.getString(R.string.article_browser_error));
             return;
@@ -56,9 +56,9 @@ public class ShareUtils {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.setData(Uri.parse(address));
-        if(context.getPackageManager().resolveActivity(intent, PackageManager.MATCH_DEFAULT_ONLY) != null){
+        if (context.getPackageManager().resolveActivity(intent, PackageManager.MATCH_DEFAULT_ONLY) != null) {
             context.startActivity(intent);
-        }else {
+        } else {
             CommonUtils.toastShow(context.getString(R.string.open_browser_unknown));
         }
     }
@@ -67,7 +67,8 @@ public class ShareUtils {
      * 复制字符串
      */
     public static void copyString(Context context, String text) {
-        if(TextUtils.isEmpty(text)) return;
+        if (TextUtils.isEmpty(text))
+            return;
         ClipboardManager mClipboardManager = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
         assert mClipboardManager != null;
         mClipboardManager.setPrimaryClip(ClipData.newPlainText(null, text));

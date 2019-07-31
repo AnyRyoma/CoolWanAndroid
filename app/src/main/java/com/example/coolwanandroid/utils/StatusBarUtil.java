@@ -59,13 +59,14 @@ public class StatusBarUtil {
      */
     public static void immersive(Window window, int color, @FloatRange(from = 0.0, to = 1.0) float alpha) {
 
-        if(Build.VERSION.SDK_INT < MIN_API) return;
+        if (Build.VERSION.SDK_INT < MIN_API)
+            return;
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             setStatusColor(window, color, alpha);
-        }else{
+        } else {
             window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            setTranslucentView((ViewGroup)window.getDecorView(), color, alpha);
+            setTranslucentView((ViewGroup) window.getDecorView(), color, alpha);
         }
     }
 
@@ -73,17 +74,18 @@ public class StatusBarUtil {
      * 为活动中的Fragment的设置沉浸式状态栏
      */
     public static void immersiveInFragments(Activity activity, int color, @FloatRange(from = 0.0, to = 1.0) float alpha) {
-        if(Build.VERSION.SDK_INT < MIN_API) return;
+        if (Build.VERSION.SDK_INT < MIN_API)
+            return;
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             activity.getWindow().setStatusBarColor(color);
             activity.getWindow().getDecorView()
                     .setSystemUiVisibility(
                             View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
-        } else{
+        } else {
             activity.getWindow()
                     .setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            setTranslucentView((ViewGroup)activity.getWindow().getDecorView(), color, alpha);
+            setTranslucentView((ViewGroup) activity.getWindow().getDecorView(), color, alpha);
         }
     }
 
@@ -91,16 +93,18 @@ public class StatusBarUtil {
      * 为头部有照片的设置沉浸式状态栏
      */
     public static void immersiveInImage(Activity activity) {
-        if(Build.VERSION.SDK_INT < MIN_API) return;
+        if (Build.VERSION.SDK_INT < MIN_API)
+            return;
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             activity.getWindow().setStatusBarColor(Color.TRANSPARENT);
             activity.getWindow().getDecorView()
                     .setSystemUiVisibility(
                             View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
-        } else{
+        } else {
             View translucentView = activity.getWindow().getDecorView().findViewById(android.R.id.custom);
-            if(translucentView != null) translucentView.setVisibility(View.GONE);
+            if (translucentView != null)
+                translucentView.setVisibility(View.GONE);
             activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         }
     }
@@ -177,10 +181,10 @@ public class StatusBarUtil {
     public static void darkMode(Window window, int color, @FloatRange(from = 0.0, to = 1.0) float alpha) {
         if (isFlyme4Later()) {
             darkModeForFlyme4(window, true);
-            immersive(window,color,alpha);
+            immersive(window, color, alpha);
         } else if (isMIUI6Later()) {
             darkModeForMIUI6(window, true);
-            immersive(window,color,alpha);
+            immersive(window, color, alpha);
         } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             darkModeForM(window, true);
             immersive(window, color, alpha);
@@ -297,8 +301,9 @@ public class StatusBarUtil {
                     view.getPaddingRight(), view.getPaddingBottom());
         }
     }
+
     /**
-     *  增加View的paddingTop,增加的值为状态栏高度 (智能判断，并设置高度)
+     * 增加View的paddingTop,增加的值为状态栏高度 (智能判断，并设置高度)
      */
     public static void setPaddingSmart(Context context, View view) {
         if (Build.VERSION.SDK_INT >= MIN_API) {
@@ -322,6 +327,7 @@ public class StatusBarUtil {
                     view.getPaddingRight(), view.getPaddingBottom());
         }
     }
+
     /**
      * 增加View上边距（MarginTop）一般是给高度为 WARP_CONTENT 的小控件用的
      */
@@ -337,11 +343,12 @@ public class StatusBarUtil {
 
     /**
      * 动态设置View的高度，高度为状态栏的高度
+     *
      * @param context
      * @param view
      */
-    public static void addStatusBarView(Context context,View view){
-        LinearLayout.LayoutParams params =(LinearLayout.LayoutParams)view.getLayoutParams();
+    public static void addStatusBarView(Context context, View view) {
+        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) view.getLayoutParams();
         params.height = getStatusBarHeight(context);
         view.setLayoutParams(params);
     }

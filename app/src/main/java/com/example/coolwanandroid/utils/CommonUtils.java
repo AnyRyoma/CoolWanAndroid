@@ -29,15 +29,16 @@ import java.util.Random;
  */
 public class CommonUtils {
 
-    public static void toastShow(String msg){
-        Toast.makeText(App.getContext(),msg,Toast.LENGTH_SHORT).show();
+    public static void toastShow(String msg) {
+        Toast.makeText(App.getContext(), msg, Toast.LENGTH_SHORT).show();
     }
+
     public static boolean isEmptyList(List<?> list) {
         return list == null || list.size() == 0;
     }
 
 
-    public static void collectAnimator(Context context, View view){
+    public static void collectAnimator(Context context, View view) {
         AnimatorSet animatorSet = (AnimatorSet) AnimatorInflater.loadAnimator(context, R.animator.collect_anim);
         animatorSet.setTarget(view);
         animatorSet.start();
@@ -49,13 +50,13 @@ public class CommonUtils {
     public static int randomColor() {
         Random random = new Random();
         //0-190, 如果颜色值过大,就越接近白色,就看不清了,所以需要限定范围
-        int red =random.nextInt(150);
+        int red = random.nextInt(150);
         //0-190
-        int green =random.nextInt(150);
+        int green = random.nextInt(150);
         //0-190
-        int blue =random.nextInt(150);
+        int blue = random.nextInt(150);
         //使用rgb混合生成一种新的颜色,Color.rgb生成的是一个int数
-        return Color.rgb(red,green, blue);
+        return Color.rgb(red, green, blue);
     }
 
     public static int randomTagColor() {
@@ -71,7 +72,8 @@ public class CommonUtils {
      * 检查是否有可用网络
      */
     public static boolean isNetworkConnected(Context context) {
-        ConnectivityManager connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getApplicationContext()
+                .getSystemService(Context.CONNECTIVITY_SERVICE);
         return connectivityManager.getActiveNetworkInfo() != null;
     }
 

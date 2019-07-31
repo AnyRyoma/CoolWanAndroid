@@ -18,8 +18,10 @@ import com.example.coolwanandroid.app.GlideApp;
  */
 public class ImageUtil {
     public static void loadImage(Context context, ImageView imageView, String path) {
-        if (App.getContext().getAppComponent().getDataModel().getNoImgStyleState())
+        if (App.getAppComponent().getDataModel().getNoImgStyleState()) {
             path = null;
+        }
+
         GlideApp.with(context)
                 .load(path)
                 .placeholder(R.drawable.test_jay)

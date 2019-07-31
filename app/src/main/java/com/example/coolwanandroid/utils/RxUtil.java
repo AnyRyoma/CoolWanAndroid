@@ -43,8 +43,7 @@ public class RxUtil {
                     if (baseResponse.getErrorCode() == 0) {
                         return createObservable(baseResponse.getData());//创建我们需要的数据
                     }
-                    return Observable.error(
-                            new ApiException(baseResponse.getErrorCode(), baseResponse.getErrorMsg())//创建一个异常
+                    return Observable.error(new ApiException(baseResponse.getErrorCode(), baseResponse.getErrorMsg())//创建一个异常
                     );
                 });
     }

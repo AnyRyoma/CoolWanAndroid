@@ -23,26 +23,27 @@ public class DownloadUtil {
     /**
      * 下载apk
      */
-    public static void downloadApk(Context context,String downloadUrl){
-        if(canDownloadState(context)){
+    public static void downloadApk(Context context, String downloadUrl) {
+        if (canDownloadState(context)) {
             //使用downloadManager下载
-            LogUtil.d(LogUtil.TAG_COMMON,"DownloadManager可用");
+            LogUtil.d(LogUtil.TAG_COMMON, "DownloadManager可用");
             Intent intent = new Intent(context, UpdateApkService.class);
-            intent.putExtra(Constant.KEY_APK_URL,downloadUrl);
+            intent.putExtra(Constant.KEY_APK_URL, downloadUrl);
             context.startService(intent);
         } else {
             //使用浏览器打开
-            LogUtil.d(LogUtil.TAG_COMMON,"DownloadManager 不可用");
-            File file= new File(Constant.PATH_APK_BROWSE);
-            if(file.exists()) file.delete();
-            ShareUtils.openBrowser(context,downloadUrl);
+            LogUtil.d(LogUtil.TAG_COMMON, "DownloadManager 不可用");
+            File file = new File(Constant.PATH_APK_BROWSE);
+            if (file.exists())
+                file.delete();
+            ShareUtils.openBrowser(context, downloadUrl);
         }
     }
 
     /**
      * 是否可以使用DownloadManager,如果不能则使用系统浏览器
      */
-    public static boolean canDownloadState(Context context) {
+    private static boolean canDownloadState(Context context) {
         try {
             int state = context.getPackageManager().getApplicationEnabledSetting("com.android.providers.downloads");
             if (state == PackageManager.COMPONENT_ENABLED_STATE_DISABLED
@@ -60,8 +61,10 @@ public class DownloadUtil {
 
     /**
      * 获取版本号
+     *
+     * @param context context
      */
-    public static String getVersionName(Context context){
+    public static String getVersionName(Context context) {
         PackageManager packageManager = context.getPackageManager();
         String version = "";
         try {
