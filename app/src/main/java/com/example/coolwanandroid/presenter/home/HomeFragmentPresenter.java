@@ -37,89 +37,84 @@ public class HomeFragmentPresenter extends BasePresenter<HomeFragmentContract.Vi
     @Override
     public void subscribeEvent() {
         addRxSubscribe(RxBus.getInstance().toObservable(AutoRefreshEvent.class)
-                        .filter(autoRefreshEvent -> autoRefreshEvent.isAutoRefresh())
-                        .subscribe(loginEvent -> mView.autoRefresh())
+                .filter(autoRefreshEvent -> autoRefreshEvent.isAutoRefresh())
+                .subscribe(loginEvent -> mView.autoRefresh())
         );
 
         addRxSubscribe(RxBus.getInstance().toObservable(NoImgEvent.class)
-                        .subscribe(noImgEvent -> mView.autoRefresh())
+                .subscribe(noImgEvent -> mView.autoRefresh())
         );
     }
 
     @Override
     public void loadBannerData() {
-        addRxSubscribe(
-                mModel.getBannerData()
-                        .compose(RxUtil.rxSchedulerHelper())
-                        .compose(RxUtil.handleResult())
-                        .subscribeWith(new BaseObserver<List<BannerData>>(mView, false, false) {
-                            @Override
-                            public void onNext(List<BannerData> bannerData) {
-                                super.onNext(bannerData);
-                                Log.d(TAG, "BannerOnNext: " + bannerData.size());
-                                mView.showBannerData(bannerData);
-                            }
-                        })
+        addRxSubscribe(mModel.getBannerData()
+                .compose(RxUtil.rxSchedulerHelper())
+                .compose(RxUtil.handleResult())
+                .subscribeWith(new BaseObserver<List<BannerData>>(mView, false, false) {
+                    @Override
+                    public void onNext(List<BannerData> bannerData) {
+                        super.onNext(bannerData);
+                        Log.d(TAG, "BannerOnNext: " + bannerData.size());
+                        mView.showBannerData(bannerData);
+                    }
+                })
         );
     }
 
     @Override
     public void loadArticles(int pageNum) {
-        addRxSubscribe(
-                mModel.getArticles(pageNum)
-                        .compose(RxUtil.rxSchedulerHelper())
-                        .compose(RxUtil.handleResult())
-                        .subscribeWith(new BaseObserver<Articles>(mView) {
-                            @Override
-                            public void onNext(Articles articles) {
-                                super.onNext(articles);
-                                mView.showArticles(articles.getDatas());
-                            }
-                        })
+        addRxSubscribe(mModel.getArticles(pageNum)
+                .compose(RxUtil.rxSchedulerHelper())
+                .compose(RxUtil.handleResult())
+                .subscribeWith(new BaseObserver<Articles>(mView) {
+                    @Override
+                    public void onNext(Articles articles) {
+                        super.onNext(articles);
+                        mView.showArticles(articles.getDatas());
+                    }
+                })
         );
     }
 
     @Override
     public void loadMoreArticles(int pageNum) {
-        addRxSubscribe(
-                mModel.getArticles(pageNum)
-                        .compose(RxUtil.rxSchedulerHelper())
-                        .compose(RxUtil.handleResult())
-                        .subscribeWith(new BaseObserver<Articles>(mView, false, false) {
-                            @Override
-                            public void onNext(Articles articles) {
-                                super.onNext(articles);
-                                mView.showMoreArticles(articles.getDatas());
-                            }
-                        })
+        addRxSubscribe(mModel.getArticles(pageNum)
+                .compose(RxUtil.rxSchedulerHelper())
+                .compose(RxUtil.handleResult())
+                .subscribeWith(new BaseObserver<Articles>(mView, false, false) {
+                    @Override
+                    public void onNext(Articles articles) {
+                        super.onNext(articles);
+                        mView.showMoreArticles(articles.getDatas());
+                    }
+                })
         );
     }
 
     @Override
     public void collectArticles(int id) {
-        addRxSubscribe(
-                mModel.collectArticles(id)
-                        .compose(RxUtil.rxSchedulerHelper())
-                        .subscribeWith(new BaseObserver<BaseResponse>(mView, false, false) {
-                            @Override
-                            public void onNext(BaseResponse baseResponse) {
-                                mView.showCollectSuccess();
-                            }
-                        })
+        addRxSubscribe(mModel.collectArticles(id)
+                .compose(RxUtil.rxSchedulerHelper())
+                .subscribeWith(new BaseObserver<BaseResponse>(mView, false, false) {
+                    @Override
+                    public void onNext(BaseResponse baseResponse) {
+                        mView.showCollectSuccess();
+                    }
+                })
         );
     }
 
     @Override
     public void unCollectArticles(int id) {
-        addRxSubscribe(
-                mModel.unCollectArticles(id)
-                        .compose(RxUtil.rxSchedulerHelper())
-                        .subscribeWith(new BaseObserver<BaseResponse>(mView, false, false) {
-                            @Override
-                            public void onNext(BaseResponse baseResponse) {
-                                mView.showUnCollectSuccess();
-                            }
-                        })
+        addRxSubscribe(mModel.unCollectArticles(id)
+                .compose(RxUtil.rxSchedulerHelper())
+                .subscribeWith(new BaseObserver<BaseResponse>(mView, false, false) {
+                    @Override
+                    public void onNext(BaseResponse baseResponse) {
+                        mView.showUnCollectSuccess();
+                    }
+                })
         );
     }
 }

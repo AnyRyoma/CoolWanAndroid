@@ -27,29 +27,27 @@ public class ArticleActivityPresenter extends BasePresenter<ArticleActivityContr
 
     @Override
     public void collectArticles(int id) {
-        addRxSubscribe(
-                mModel.collectArticles(id)
-                        .compose(RxUtil.rxSchedulerHelper())
-                        .subscribeWith(new BaseObserver<BaseResponse>(mView, false, false) {
-                            @Override
-                            public void onNext(BaseResponse baseResponse) {
-                                mView.showCollectSuccess();
-                            }
-                        })
+        addRxSubscribe(mModel.collectArticles(id)
+                .compose(RxUtil.rxSchedulerHelper())
+                .subscribeWith(new BaseObserver<BaseResponse>(mView, false, false) {
+                    @Override
+                    public void onNext(BaseResponse baseResponse) {
+                        mView.showCollectSuccess();
+                    }
+                })
         );
     }
 
     @Override
     public void unCollectArticles(int id) {
-        addRxSubscribe(
-                mModel.unCollectArticles(id)
-                        .compose(RxUtil.rxSchedulerHelper())
-                        .subscribeWith(new BaseObserver<BaseResponse>(mView, false, false) {
-                            @Override
-                            public void onNext(BaseResponse baseResponse) {
-                                mView.showUnCollectSuccess();
-                            }
-                        })
+        addRxSubscribe(mModel.unCollectArticles(id)
+                .compose(RxUtil.rxSchedulerHelper())
+                .subscribeWith(new BaseObserver<BaseResponse>(mView, false, false) {
+                    @Override
+                    public void onNext(BaseResponse baseResponse) {
+                        mView.showUnCollectSuccess();
+                    }
+                })
         );
     }
 }

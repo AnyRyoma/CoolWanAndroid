@@ -23,9 +23,20 @@ public class User implements Serializable, Cloneable {
     private User() {
     }
 
-    private String mUsername;//用户名
-    private String mPassword;//密码
-    private boolean mLoginStatus;//登陆状态
+    /**
+     * 用户名
+     */
+    private String mUsername;
+
+    /**
+     * 密码
+     */
+    private String mPassword;
+
+    /**
+     * 登陆状态
+     */
+    private boolean mLoginStatus;
 
     /**
      * 退出登录时使用

@@ -13,7 +13,14 @@ import com.example.coolwanandroid.utils.RxUtil;
 
 import javax.inject.Inject;
 
-
+/**
+ * @author eco-ryoma
+ * @date 2019/8/1
+ * @description 登录页presenter
+ * <p>
+ * Copyright (c) 2019, eco-ryoma.
+ * All rights reserved.
+ */
 public class LoginFragmentPresenter extends BasePresenter<LoginFragmentContract.View>
         implements LoginFragmentContract.Presenter {
 
@@ -24,33 +31,32 @@ public class LoginFragmentPresenter extends BasePresenter<LoginFragmentContract.
 
     @Override
     public void login(String username, String password) {
-        addRxSubscribe(
-                mModel.login(username, password)
-                        .compose(RxUtil.rxSchedulerHelper())
-                        .subscribeWith(new BaseObserver<BaseResponse>(mView, false, false) {
-                            @Override
-                            public void onNext(BaseResponse baseResponse) {
-                                if (baseResponse.getErrorCode() == 0) {
-                                    User user = User.getInstance();
-                                    user.setPassword(password);
-                                    user.setUsername(username);
-                                    user.setLoginStatus(true);
-                                    user.save();
-                                    RxBus.getInstance().post(new LoginEvent(true));
-                                    RxBus.getInstance().post(new AutoRefreshEvent(true));
-                                    mView.showLoginSuccess();
-                                } else {
-                                    mView.showToast(baseResponse.getErrorMsg());
-                                    mView.showErrorView();
-                                }
-                            }
+        addRxSubscribe(mModel.login(username, password)
+                .compose(RxUtil.rxSchedulerHelper())
+                .subscribeWith(new BaseObserver<BaseResponse>(mView, false, false) {
+                    @Override
+                    public void onNext(BaseResponse baseResponse) {
+                        if (baseResponse.getErrorCode() == 0) {
+                            User user = User.getInstance();
+                            user.setPassword(password);
+                            user.setUsername(username);
+                            user.setLoginStatus(true);
+                            user.save();
+                            RxBus.getInstance().post(new LoginEvent(true));
+                            RxBus.getInstance().post(new AutoRefreshEvent(true));
+                            mView.showLoginSuccess();
+                        } else {
+                            mView.showToast(baseResponse.getErrorMsg());
+                            mView.showErrorView();
+                        }
+                    }
 
-                            @Override
-                            public void onError(Throwable e) {
-                                super.onError(e);
-                                mView.showErrorView();
-                            }
-                        })
+                    @Override
+                    public void onError(Throwable e) {
+                        super.onError(e);
+                        mView.showErrorView();
+                    }
+                })
         );
     }
 }
