@@ -11,6 +11,7 @@ import com.example.coolwanandroid.base.view.BaseView;
  * All rights reserved.
  */
 public interface ArticleActivityContract {
+
     interface View extends BaseView {
         void showCollectSuccess(); //收藏成功
 
@@ -18,8 +19,18 @@ public interface ArticleActivityContract {
     }
 
     interface Presenter extends IPresenter<View> {
-        void collectArticles(int id); //收藏首页文章
+        /**
+         * 收藏文章
+         *
+         * @param id 文章id
+         */
+        void collectArticles(int id);
 
+        /**
+         * 取消收藏
+         *
+         * @param id 文章id
+         */
         void unCollectArticles(int id);//取消收藏
     }
 }
