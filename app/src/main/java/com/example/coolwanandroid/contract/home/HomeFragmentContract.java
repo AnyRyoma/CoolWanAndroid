@@ -35,11 +35,24 @@ public interface HomeFragmentContract {
 
 
     interface Presenter extends IPresenter<View> {
-        void loadBannerData();//加载首页banner数据
+        /**
+         * 加载首页banner数据
+         */
+        void loadBannerData();
 
-        void loadArticles(int pageNum);//加载首页文章数据
+        /**
+         * 加载首页文章数据
+         *
+         * @param pageNum 页面id
+         */
+        void loadArticles(int pageNum);
 
-        void loadMoreArticles(int pageNum);//加载更多首页文章数据
+        /**
+         * 加载更多首页文章
+         *
+         * @param pageNum
+         */
+        void loadMoreArticles(int pageNum);
 
         void collectArticles(int id); //收藏首页文章
 

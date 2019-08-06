@@ -37,6 +37,9 @@ public class RxBus {
         return mSubject.ofType(eventType);
     }
 
+    /**
+     * 静态内部类方式-单例模式
+     */
     private static class Holder {
         static final RxBus INSTANCE = new RxBus();
     }
