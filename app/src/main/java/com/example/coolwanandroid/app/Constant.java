@@ -56,7 +56,9 @@ public class Constant {
             Color.parseColor("#F6BC7E")
     };
 
-    //prefs
+    /**
+     * prefs
+     */
     public static final String SHARED_PREFERENCES_NAME = "prefs";
     public static final String KEY_PREFERS_NIGHT = "night";
     public static final String KEY_PREFERS_NO_IMG = "no_img";
@@ -65,12 +67,16 @@ public class Constant {
     public static final String KEY_PREFERS_DOWNLOAD_ID = "download_id";
     public static final String KEY_PREFERS_NAV_ITEM = "nav_item"; //底部导航item，用于打开夜间模式后重新打开app
 
-    //setting
-    public static final String EMAIL_ADDRESS = "1443481947@qq.com";
+    /**
+     * EMAIL_ADDRESS
+     */
+    public static final String EMAIL_ADDRESS = "vincent.yijun@gmail.com";
 
-    //path
+    /**
+     * path
+     */
     public static final String PATH_NET_CACHE = FileUtil.getCachePath(App.getContext(), "netData");
-    public static final String PATH_APK_DOWNLOAD_MANAGER = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/WanAndroid.apk";
+    public static final String PATH_APK_DOWNLOAD_MANAGER = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/CoolWanAndroid.apk";
     public static final String PATH_APK_BROWSE = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/app-release.apk";
 
     //download
