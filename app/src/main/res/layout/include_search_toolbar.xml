@@ -11,17 +11,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_marginEnd="@dimen/dp_20"
         android:layout_marginStart="@dimen/dp_20"
+        android:layout_marginEnd="@dimen/dp_20"
         android:background="@drawable/bg_search_text"
-        android:hint="@string/search_text"
         android:cursorVisible="false"
         android:focusable="false"
-        android:paddingBottom="@dimen/dp_10"
+        android:hint="@string/search_text"
         android:paddingStart="@dimen/dp_40"
         android:paddingTop="@dimen/dp_10"
+        android:paddingBottom="@dimen/dp_10"
         android:textSize="@dimen/sp_16"
-        android:transitionName="@string/share_edit"/>
+        android:transitionName="@string/share_edit" />
 
     <ImageView
         android:id="@+id/searchIv"

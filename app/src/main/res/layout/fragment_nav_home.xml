@@ -3,23 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
     <View
         android:id="@+id/statusBarView"
         android:layout_width="match_parent"
-        android:background="@color/colorPrimaryDark"
-        android:layout_height="@dimen/dp_20"/>
+        android:layout_height="@dimen/dp_20"
+        android:background="@color/colorPrimaryDark" />
 
 
-    <include layout="@layout/include_search_toolbar"/>
+    <include layout="@layout/include_search_toolbar" />
 
     <com.scwang.smartrefresh.layout.SmartRefreshLayout
         android:id="@+id/normalView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerView"

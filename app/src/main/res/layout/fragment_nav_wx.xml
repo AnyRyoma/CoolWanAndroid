@@ -8,8 +8,8 @@
     <View
         android:id="@+id/statusBarView"
         android:layout_width="match_parent"
-        android:background="@color/colorPrimaryDark"
-        android:layout_height="@dimen/dp_20"/>
+        android:layout_height="@dimen/dp_20"
+        android:background="@color/colorPrimaryDark" />
 
     <include layout="@layout/include_search_toolbar" />
 
@@ -31,7 +31,7 @@
             app:tl_textBold="BOTH"
             app:tl_textSelectColor="@color/colorPrimaryDark"
             app:tl_textUnselectColor="@color/black"
-            app:tl_textsize="@dimen/sp_16"/>
+            app:tl_textsize="@dimen/sp_16" />
 
         <View
             android:layout_width="match_parent"
