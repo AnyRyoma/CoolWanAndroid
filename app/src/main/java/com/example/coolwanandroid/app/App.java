@@ -23,7 +23,7 @@ import org.litepal.LitePal;
 /**
  * @author eco-ryoma
  * @date 2019/01/20
- * @description 请定义Application
+ * @description 自定义Application
  * <p>
  * Copyright (c) 2019, eco-ryoma.
  * All rights reserved.
@@ -31,7 +31,9 @@ import org.litepal.LitePal;
 public class App extends Application {
     private static App mApp;
     private static AppComponent mAppComponent;
-    //leakCanary内存泄漏监控
+    /**
+     * leakCanary内存泄漏监控
+     */
     private RefWatcher mRefWatcher;
 
     //static代码段可以防止内存泄露

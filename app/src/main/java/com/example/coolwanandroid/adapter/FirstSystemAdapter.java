@@ -19,6 +19,12 @@ import java.util.List;
  */
 public class FirstSystemAdapter extends BaseQuickAdapter<FirstSystem, BaseViewHolder> {
 
+    /**
+     * 知识体系适配器
+     *
+     * @param layoutResId 布局id
+     * @param data        适配数据
+     */
     public FirstSystemAdapter(int layoutResId, @Nullable List<FirstSystem> data) {
         super(layoutResId, data);
     }
