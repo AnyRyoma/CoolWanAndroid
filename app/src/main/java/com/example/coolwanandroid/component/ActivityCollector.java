@@ -17,13 +17,27 @@ public class ActivityCollector {
     private ActivityCollector() {
     }
 
-    //DCL实现单例
+    /**
+     * 静态内部类
+     */
     public static ActivityCollector getInstance() {
         return ActivityCollectorHolder.mActivityCollector;
     }
 
+    /**
+     * 静态内部类单例模式
+     */
+    private static class ActivityCollectorHolder {
+        private static final ActivityCollector mActivityCollector = new ActivityCollector();
+    }
+
     private Set<Activity> allActivities;
 
+    /**
+     * 新增activity 对象入栈
+     *
+     * @param activity
+     */
     public void addActivity(Activity activity) {
         if (allActivities == null) {
             allActivities = new HashSet<>();
@@ -45,12 +59,5 @@ public class ActivityCollector {
                 }
             }
         }
-    }
-
-    /**
-     * 静态内部类单例模式
-     */
-    private static class ActivityCollectorHolder {
-        private static final ActivityCollector mActivityCollector = new ActivityCollector();
     }
 }
