@@ -17,5 +17,10 @@ import dagger.Component;
 @PerFragment
 @Component(dependencies = AppComponent.class)
 public interface LoginFragmentComponent {
+    /**
+     * inject
+     *
+     * @param loginFragment loginFragment
+     */
     void inject(LoginFragment loginFragment);
 }

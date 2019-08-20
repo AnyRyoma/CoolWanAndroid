@@ -13,8 +13,14 @@ import com.example.coolwanandroid.utils.RxUtil;
 
 import javax.inject.Inject;
 
-
-
+/**
+ * @author chenyijun
+ * @date 2019-08-20
+ * @description PersonFragmentPresenter
+ * <p>
+ * Copyright (c) 2019, eco-ryoma.
+ * All rights reserved.
+ */
 public class PersonFragmentPresenter extends BasePresenter<PersonFragmentContract.View>
         implements PersonFragmentContract.Presenter {
 
@@ -22,28 +28,27 @@ public class PersonFragmentPresenter extends BasePresenter<PersonFragmentContrac
     public PersonFragmentPresenter(DataModel model) {
         super(model);
     }
+
     @Override
     public void subscribeEvent() {
-        addRxSubscribe(
-                RxBus.getInstance().toObservable(LoginEvent.class)
-                        .filter(loginEvent -> loginEvent.isLogin())
-                        .subscribe(loginEvent -> mView.showLogin())
+        addRxSubscribe(RxBus.getInstance().toObservable(LoginEvent.class)
+                .filter(loginEvent -> loginEvent.isLogin())
+                .subscribe(loginEvent -> mView.showLogin())
         );
     }
 
     @Override
     public void logout() {
-       addRxSubscribe(
-               mModel.logout()
-               .compose(RxUtil.rxSchedulerHelper())
-               .subscribeWith(new BaseObserver<BaseResponse>(mView,false,false){
-                   @Override
-                   public void onNext(BaseResponse baseResponse){
-                       User.getInstance().reset();
-                       RxBus.getInstance().post(new AutoRefreshEvent(true));
-                       mView.showLogout();
-                   }
-               })
-       );
+        addRxSubscribe(mModel.logout()
+                .compose(RxUtil.rxSchedulerHelper())
+                .subscribeWith(new BaseObserver<BaseResponse>(mView, false, false) {
+                    @Override
+                    public void onNext(BaseResponse baseResponse) {
+                        User.getInstance().reset();
+                        RxBus.getInstance().post(new AutoRefreshEvent(true));
+                        mView.showLogout();
+                    }
+                })
+        );
     }
 }

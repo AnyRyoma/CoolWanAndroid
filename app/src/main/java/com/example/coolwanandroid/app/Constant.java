@@ -29,12 +29,16 @@ public class Constant {
     public final static String KEY_ARTICLE_COLLECT_HIDE = "article_collect_hide";
 
 
-    //二级体系key
+    /**
+     * 二级体系key
+     */
     public final static String KEY_SYSTEM_FIRST_NAME = "system_first_name";
     public final static String KEY_SYSTEM_SECOND_NAME_LIST = "system_second_name_list";
     public final static String KEY_SYSTEM_SECOND_ID_LIST = "system_second_id_list";
 
-    //BaseLoadingState
+    /**
+     * BaseLoadingState
+     */
     public static final int NORMAL_STATE = 0;
     public static final int LOADING_STATE = 1;
     public static final int ERROR_STATE = 2;

@@ -16,5 +16,10 @@ import dagger.Subcomponent;
 @PerFragment
 @Subcomponent(modules = SystemFragmentModule.class)
 public interface SystemFragmentComponent {
+    /**
+     * inject
+     *
+     * @param systemFragment systemFragment
+     */
     void inject(SystemFragment systemFragment);
 }

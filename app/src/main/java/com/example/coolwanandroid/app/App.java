@@ -85,7 +85,12 @@ public class App extends Application {
         return mAppComponent;
     }
 
-    //用于fragment的监控内存泄漏
+    /**
+     * 用于fragment的监控内存泄漏
+     *
+     * @param context
+     * @return
+     */
     public static RefWatcher getRefWatcher(Context context) {
         App application = (App) context.getApplicationContext();
         return application.mRefWatcher;

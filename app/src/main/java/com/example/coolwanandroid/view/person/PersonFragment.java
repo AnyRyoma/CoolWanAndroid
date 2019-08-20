@@ -31,8 +31,7 @@ import static android.app.Activity.RESULT_OK;
  * Copyright (c) 2019, eco-ryoma.
  * All rights reserved.
  */
-public class PersonFragment extends BaseMvpFragment<PersonFragmentPresenter>
-        implements PersonFragmentContract.View {
+public class PersonFragment extends BaseMvpFragment<PersonFragmentPresenter> implements PersonFragmentContract.View {
 
     @Inject
     PersonFragmentPresenter mPresenter;
