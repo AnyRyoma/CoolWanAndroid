@@ -13,9 +13,15 @@ import com.example.coolwanandroid.base.view.BaseView;
 public interface ArticleActivityContract {
 
     interface View extends BaseView {
-        void showCollectSuccess(); //收藏成功
+        /**
+         * 收藏成功
+         */
+        void showCollectSuccess();
 
-        void showUnCollectSuccess();//取消收藏成功
+        /**
+         * 取消收藏成功
+         */
+        void showUnCollectSuccess();
     }
 
     interface Presenter extends IPresenter<View> {

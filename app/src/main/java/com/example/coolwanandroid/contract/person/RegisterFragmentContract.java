@@ -15,14 +15,34 @@ import com.example.coolwanandroid.base.view.BaseView;
  */
 public interface RegisterFragmentContract {
     interface View extends BaseView {
-        void showSuccess();  //注册成功
+        /**
+         * 注册成功
+         */
+        void showSuccess();
 
+        /**
+         * toLoginFragment
+         */
         void toLoginFragment();
 
+        /**
+         * getEditText
+         *
+         * @param editText editText
+         * @return text
+         */
         String getEditText(EditText editText);
     }
 
     interface Presenter extends IPresenter<View> {
-        void register(String username, String password, String rePassword); //注册
+
+        /**
+         * 注册
+         *
+         * @param username   username
+         * @param password   password
+         * @param rePassword rePassword
+         */
+        void register(String username, String password, String rePassword);
     }
 }

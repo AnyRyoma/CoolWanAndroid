@@ -16,8 +16,18 @@ import java.util.List;
  */
 public interface WxArticlesFragmentContract {
     interface View extends BaseView {
+        /**
+         * showWxArticles
+         *
+         * @param articleList articleList
+         */
         void showWxArticles(List<Article> articleList);
 
+        /**
+         * showMoreWxArticles
+         *
+         * @param articleList articleList
+         */
         void showMoreWxArticles(List<Article> articleList);
 
         void initRecyclerView();
@@ -32,12 +42,35 @@ public interface WxArticlesFragmentContract {
     }
 
     interface Presenter extends IPresenter<View> {
+
+        /**
+         * loadWxArticlesData
+         *
+         * @param pageNum pageNum
+         * @param id      id
+         */
         void loadWxArticlesData(int pageNum, int id);
 
+        /**
+         * loadMoreWxArticlesData
+         *
+         * @param pageNum pageNum
+         * @param id      id
+         */
         void loadMoreWxArticlesData(int pageNum, int id);
 
-        void collectArticles(int id); //收藏首页文章
+        /**
+         * 收藏首页文章
+         *
+         * @param id id
+         */
+        void collectArticles(int id);
 
-        void unCollectArticles(int id);//取消收藏
+        /**
+         * 取消收藏
+         *
+         * @param id id
+         */
+        void unCollectArticles(int id);
     }
 }

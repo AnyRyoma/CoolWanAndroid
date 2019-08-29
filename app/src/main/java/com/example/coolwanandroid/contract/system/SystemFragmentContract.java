@@ -16,10 +16,20 @@ import java.util.List;
  */
 public interface SystemFragmentContract {
     interface View extends BaseView {
-        void showSystemData(List<FirstSystem> firstSystemList); //显示知识体系的目录
+        /**
+         * 显示知识体系的目录
+         *
+         * @param firstSystemList firstSystemList
+         */
+        void showSystemData(List<FirstSystem> firstSystemList);
     }
 
     interface Presenter extends IPresenter<View> {
-        void loadSystemData(boolean isShowLoadingView); //加载知识体系的数据
+        /**
+         * 加载知识体系的数据
+         *
+         * @param isShowLoadingView isShowLoadingView
+         */
+        void loadSystemData(boolean isShowLoadingView);
     }
 }

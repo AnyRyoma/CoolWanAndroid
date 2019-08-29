@@ -16,28 +16,77 @@ import java.util.List;
  */
 public interface SearchArticlesActivityContract {
     interface View extends BaseView {
+
+        /**
+         * showArticles
+         *
+         * @param articles articles
+         */
         void showArticles(List<Article> articles);
 
+        /**
+         * showMoreArticles
+         *
+         * @param articles articles
+         */
         void showMoreArticles(List<Article> articles);
 
+        /**
+         * showCollectSuccess
+         */
         void showCollectSuccess();
 
+        /**
+         * showUnCollectSuccess
+         */
         void showUnCollectSuccess();
 
+        /**
+         * initToolbar
+         */
         void initToolbar();
 
+        /**
+         * initRecyclerView
+         */
         void initRecyclerView();
 
+        /**
+         * initRefresh
+         */
         void initRefresh();
     }
 
     interface Presenter extends IPresenter<View> {
+
+        /**
+         * loadArticles
+         *
+         * @param pageNum pageNum
+         * @param key     key
+         */
         void loadArticles(int pageNum, String key);
 
+        /**
+         * loadMoreArticles
+         *
+         * @param pageNum pageNum
+         * @param key     key
+         */
         void loadMoreArticles(int pageNum, String key);
 
+        /**
+         * collectArticles
+         *
+         * @param id id
+         */
         void collectArticles(int id);
 
+        /**
+         * unCollectArticles
+         *
+         * @param id id
+         */
         void unCollectArticles(int id);
     }
 }

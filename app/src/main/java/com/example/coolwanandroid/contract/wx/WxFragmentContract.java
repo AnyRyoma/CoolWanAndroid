@@ -16,10 +16,19 @@ import java.util.List;
  */
 public interface WxFragmentContract {
     interface View extends BaseView {
+        /**
+         * showWxTab
+         *
+         * @param tabList tabList
+         */
         void showWxTab(List<Tab> tabList);
     }
 
     interface Presenter extends IPresenter<View> {
+
+        /**
+         * loadWxTabData
+         */
         void loadWxTabData();
     }
 }

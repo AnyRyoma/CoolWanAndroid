@@ -16,23 +16,63 @@ import java.util.List;
  */
 public interface SystemArticlesFragmentContract {
     interface View extends BaseView {
-        void showSystemArticles(List<Article> articlesList);//显示二级体系的文章
 
-        void showMoreSystemArticles(List<Article> articlesList); //显示更多
+        /**
+         * 显示二级体系的文章
+         *
+         * @param articlesList articlesList
+         */
+        void showSystemArticles(List<Article> articlesList);
 
-        void showCollectSuccess(); //收藏成功
+        /**
+         * 显示更多
+         *
+         * @param articlesList articlesList
+         */
+        void showMoreSystemArticles(List<Article> articlesList);
 
-        void showUnCollectSuccess();//取消收藏成功
+        /**
+         * 收藏成功
+         */
+        void showCollectSuccess();
+
+        /**
+         * 取消收藏成功
+         */
+        void showUnCollectSuccess();
     }
 
 
     interface Presenter extends IPresenter<View> {
-        void loadSystemArticlesData(int pageNum, int id);//加载二级体系的文章
 
-        void loadMoreSystemArticlesData(int pageNum, int id); //加载更多
+        /**
+         * 加载二级体系的文章
+         *
+         * @param pageNum pageNum
+         * @param id      id
+         */
+        void loadSystemArticlesData(int pageNum, int id);
 
-        void collectArticles(int id); //收藏首页文章
+        /**
+         * 加载更多
+         *
+         * @param pageNum pageNum
+         * @param id      id
+         */
+        void loadMoreSystemArticlesData(int pageNum, int id);
 
-        void unCollectArticles(int id);//取消收藏
+        /**
+         * 收藏首页文章
+         *
+         * @param id id
+         */
+        void collectArticles(int id);
+
+        /**
+         * 取消收藏
+         *
+         * @param id id
+         */
+        void unCollectArticles(int id);
     }
 }
