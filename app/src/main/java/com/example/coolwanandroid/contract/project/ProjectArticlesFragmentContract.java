@@ -15,29 +15,78 @@ import java.util.List;
  * All rights reserved.
  */
 public interface ProjectArticlesFragmentContract {
+
     interface View extends BaseView {
+        /**
+         * 获取article 列表
+         *
+         * @param articleList articleList
+         */
         void showProjectArticles(List<Article> articleList);
 
+        /**
+         * 获取更多文章
+         *
+         * @param articleList articleList
+         */
         void showMoreProjectArticles(List<Article> articleList);
 
+        /**
+         * 初始化RecyclerView
+         */
         void initRecyclerView();
 
+        /**
+         * initRefresh
+         */
         void initRefresh();
 
-        void showCollectSuccess(); //收藏成功
+        /**
+         * 收藏成功
+         */
+        void showCollectSuccess();
 
-        void showUnCollectSuccess();//取消收藏成功
+        /**
+         * 取消收藏成功
+         */
+        void showUnCollectSuccess();
 
+        /**
+         * autoRefresh
+         */
         void autoRefresh();
     }
 
     interface Presenter extends IPresenter<View> {
+
+        /**
+         * loadProjectArticlesData
+         *
+         * @param pageNum pageNum
+         * @param id      id
+         */
         void loadProjectArticlesData(int pageNum, int id);
 
+        /**
+         * loadMoreProjectArticlesData
+         *
+         * @param pageNum pageNum
+         * @param id      id
+         */
         void loadMoreProjectArticlesData(int pageNum, int id);
 
-        void collectArticles(int id); //收藏首页文章
+        /**
+         * 收藏首页文章
+         *
+         * @param id id
+         */
+        void collectArticles(int id);
 
-        void unCollectArticles(int id);//取消收藏
+        /**
+         * unCollectArticles
+         *
+         * @param id id
+         */
+        void unCollectArticles(int id);
     }
 }

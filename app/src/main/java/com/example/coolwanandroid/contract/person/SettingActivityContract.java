@@ -13,14 +13,32 @@ import com.example.coolwanandroid.base.view.BaseView;
  */
 public interface SettingActivityContract {
     interface View extends BaseView {
-        void showChangeNightStyle(); //显示夜间模式切换动画
+        /**
+         * 显示夜间模式切换动画
+         */
+        void showChangeNightStyle();
     }
 
     interface Presenter extends IPresenter<View> {
-        void setNightStyleState(boolean isNight); //设置夜间模式
+        /**
+         * 设置夜间模式
+         *
+         * @param isNight isNight
+         */
+        void setNightStyleState(boolean isNight);
 
-        void setNoImgStyleState(boolean isNoImg); ///设置无图模式
+        /**
+         * 设置无图模式
+         *
+         * @param isNoImg isNoImg
+         */
+        void setNoImgStyleState(boolean isNoImg);
 
-        void setAutoCacheStyleState(boolean isAutoCache);//设置自动缓存模式
+        /**
+         * setAutoCacheStyleState
+         *
+         * @param isAutoCache isAutoCache
+         */
+        void setAutoCacheStyleState(boolean isAutoCache);
     }
 }

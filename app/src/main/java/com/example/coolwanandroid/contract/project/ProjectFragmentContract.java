@@ -16,10 +16,18 @@ import java.util.List;
  */
 public interface ProjectFragmentContract {
     interface View extends BaseView {
+        /**
+         * showProjectTab
+         *
+         * @param tabList tabList
+         */
         void showProjectTab(List<Tab> tabList);
     }
 
     interface Presenter extends IPresenter<View> {
+        /**
+         * loadProjectTabData
+         */
         void loadProjectTabData();
     }
 }
