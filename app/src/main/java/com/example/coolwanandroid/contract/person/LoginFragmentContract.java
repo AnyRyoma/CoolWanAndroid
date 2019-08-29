@@ -14,13 +14,30 @@ import com.example.coolwanandroid.base.view.BaseView;
  * All rights reserved.
  */
 public interface LoginFragmentContract {
-    interface View extends BaseView {
-        void showLoginSuccess();//登录成功
 
+    interface View extends BaseView {
+        /**
+         * 登陆成功
+         */
+        void showLoginSuccess();
+
+        /**
+         * getEditText
+         *
+         * @param editText editText
+         * @return 文本
+         */
         String getEditText(EditText editText);
     }
 
     interface Presenter extends IPresenter<View> {
+
+        /**
+         * login
+         *
+         * @param username username
+         * @param password password
+         */
         void login(String username, String password);
     }
 }
