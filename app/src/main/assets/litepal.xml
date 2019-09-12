@@ -4,7 +4,7 @@
     <dbname value="WanAndroid"/>
     <version value="1"/>
     <list>
-        <mapping class="com.example.coolwanandroid.model.entity.History"> </mapping>
+        <mapping class="com.ryoma.coolwanandroid.model.entity.History"> </mapping>
     </list>
 
 </litepal>

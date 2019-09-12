@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.coolwanandroid">
+    package="com.ryoma.coolwanandroid">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <!-- sd卡读写 -->
@@ -19,7 +19,7 @@
         tools:ignore="ProtectedPermissions" />
 
     <application
-        android:name="com.example.coolwanandroid.app.App"
+        android:name=".app.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_icon"
         android:label="@string/app_name"
@@ -29,28 +29,28 @@
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:icon,android:theme">
         <service
-            android:name="com.example.coolwanandroid.service.UpdateApkService"
+            android:name=".service.UpdateApkService"
             android:enabled="true"
             android:exported="true" />
 
-        <receiver android:name="com.example.coolwanandroid.service.UpdateApkReceiver" />
+        <receiver android:name=".service.UpdateApkReceiver" />
 
-        <activity android:name="com.example.coolwanandroid.view.person.AboutUsActivity" />
-        <activity android:name="com.example.coolwanandroid.view.LeaderActivity">
+        <activity android:name=".view.person.AboutUsActivity" />
+        <activity android:name=".view.LeaderActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.coolwanandroid.view.MainActivity" />
-        <activity android:name="com.example.coolwanandroid.view.home.ArticleActivity" />
-        <activity android:name="com.example.coolwanandroid.view.system.SystemArticlesActivity" />
-        <activity android:name="com.example.coolwanandroid.view.person.LoginActivity" />
-        <activity android:name="com.example.coolwanandroid.view.person.CollectionActivity" />
-        <activity android:name="com.example.coolwanandroid.view.search.SearchActivity" />
-        <activity android:name="com.example.coolwanandroid.view.search.SearchArticlesActivity" />
-        <activity android:name="com.example.coolwanandroid.view.person.SettingActivity" />
+        <activity android:name=".view.MainActivity" />
+        <activity android:name=".view.home.ArticleActivity" />
+        <activity android:name=".view.system.SystemArticlesActivity" />
+        <activity android:name=".view.person.LoginActivity" />
+        <activity android:name=".view.person.CollectionActivity" />
+        <activity android:name=".view.search.SearchActivity" />
+        <activity android:name=".view.search.SearchArticlesActivity" />
+        <activity android:name=".view.person.SettingActivity" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"

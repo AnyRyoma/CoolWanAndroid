@@ -6,7 +6,7 @@ android {
 
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     defaultConfig {
-        applicationId "com.example.coolwanandroid"
+        applicationId "com.ryoma.coolwanandroid"
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode rootProject.ext.android.versionCode

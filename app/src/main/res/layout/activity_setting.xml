@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:orientation="vertical"
-    tools:context="com.example.coolwanandroid.view.person.SettingActivity">
+    tools:context="com.example.coolwanandroid.com.ryoma.coolwanandroid.view.person.SettingActivity">
 
     <include layout="@layout/common_toolbar" />
 

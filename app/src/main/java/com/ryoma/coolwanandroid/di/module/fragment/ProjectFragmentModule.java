@@ -1,0 +1,40 @@
+package com.ryoma.coolwanandroid.di.module.fragment;
+
+import android.support.v4.app.Fragment;
+
+import com.ryoma.coolwanandroid.di.scope.PerFragment;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import dagger.Module;
+import dagger.Provides;
+
+/**
+ * @author eco-ryoma
+ * @date 2019/7/29
+ * @description 项目Tab
+ * <p>
+ * Copyright (c) 2019, eco-ryoma.
+ * All rights reserved.
+ */
+@Module
+public class ProjectFragmentModule {
+    @Provides
+    @PerFragment
+    List<Fragment> provideSupportFragment() {
+        return new ArrayList<>();
+    }
+
+    @Provides
+    @PerFragment
+    List<String> provideTitles() {
+        return new ArrayList<>();
+    }
+
+    @Provides
+    @PerFragment
+    List<Integer> provideIds() {
+        return new ArrayList<>();
+    }
+}
