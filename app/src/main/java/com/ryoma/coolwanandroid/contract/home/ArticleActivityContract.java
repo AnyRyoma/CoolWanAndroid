@@ -37,6 +37,6 @@ public interface ArticleActivityContract {
          *
          * @param id 文章id
          */
-        void unCollectArticles(int id);//取消收藏
+        void unCollectArticles(int id);
     }
 }

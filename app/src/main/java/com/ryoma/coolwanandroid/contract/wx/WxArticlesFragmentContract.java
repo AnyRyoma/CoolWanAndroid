@@ -15,6 +15,7 @@ import java.util.List;
  * All rights reserved.
  */
 public interface WxArticlesFragmentContract {
+
     interface View extends BaseView {
         /**
          * showWxArticles
