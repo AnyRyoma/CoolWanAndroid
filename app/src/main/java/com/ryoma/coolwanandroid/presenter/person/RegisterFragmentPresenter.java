@@ -27,26 +27,25 @@ public class RegisterFragmentPresenter extends BasePresenter<RegisterFragmentCon
 
     @Override
     public void register(String username, String password, String rePassword) {
-        addRxSubscribe(
-                mModel.register(username, password, rePassword)
-                        .compose(RxUtil.rxSchedulerHelper())
-                        .subscribeWith(new BaseObserver<BaseResponse>(mView, false, false) {
-                            @Override
-                            public void onNext(BaseResponse response) {
-                                if (response.getErrorCode() == 0) {
-                                    mView.showSuccess();
-                                } else {
-                                    mView.showToast(response.getErrorMsg());
-                                    mView.showErrorView();
-                                }
-                            }
+        addRxSubscribe(mModel.register(username, password, rePassword)
+                .compose(RxUtil.rxSchedulerHelper())
+                .subscribeWith(new BaseObserver<BaseResponse>(mView, false, false) {
+                    @Override
+                    public void onNext(BaseResponse response) {
+                        if (response.getErrorCode() == 0) {
+                            mView.showSuccess();
+                        } else {
+                            mView.showToast(response.getErrorMsg());
+                            mView.showErrorView();
+                        }
+                    }
 
-                            @Override
-                            public void onError(Throwable e) {
-                                super.onError(e);
-                                mView.showErrorView();
-                            }
-                        })
+                    @Override
+                    public void onError(Throwable e) {
+                        super.onError(e);
+                        mView.showErrorView();
+                    }
+                })
         );
     }
 }

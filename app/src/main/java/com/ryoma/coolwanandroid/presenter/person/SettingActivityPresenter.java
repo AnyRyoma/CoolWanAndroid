@@ -27,12 +27,11 @@ public class SettingActivityPresenter extends BasePresenter<SettingActivityContr
 
     @Override
     public void subscribeEvent() {
-        addRxSubscribe(
-                RxBus.getInstance().toObservable(NightStyleEvent.class)
-                        .subscribe(nightStyleEvent -> {
-                            mView.showNightStyle(nightStyleEvent.isNight());
-                            mView.showChangeNightStyle();
-                        })
+        addRxSubscribe(RxBus.getInstance().toObservable(NightStyleEvent.class)
+                .subscribe(nightStyleEvent -> {
+                    mView.showNightStyle(nightStyleEvent.isNight());
+                    mView.showChangeNightStyle();
+                })
         );
     }
 

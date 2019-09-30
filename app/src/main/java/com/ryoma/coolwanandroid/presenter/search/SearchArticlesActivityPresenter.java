@@ -28,61 +28,57 @@ public class SearchArticlesActivityPresenter extends BasePresenter<SearchArticle
 
     @Override
     public void loadArticles(int pageNum, String key) {
-        addRxSubscribe(
-                mModel.getSearchArticles(key, pageNum)
-                        .compose(RxUtil.rxSchedulerHelper())
-                        .compose(RxUtil.handleResult())
-                        .subscribeWith(new BaseObserver<Articles>(mView) {
-                            @Override
-                            public void onNext(Articles articles) {
-                                super.onNext(articles);
-                                mView.showArticles(articles.getDatas());
-                            }
-                        })
+        addRxSubscribe(mModel.getSearchArticles(key, pageNum)
+                .compose(RxUtil.rxSchedulerHelper())
+                .compose(RxUtil.handleResult())
+                .subscribeWith(new BaseObserver<Articles>(mView) {
+                    @Override
+                    public void onNext(Articles articles) {
+                        super.onNext(articles);
+                        mView.showArticles(articles.getDatas());
+                    }
+                })
         );
     }
 
     @Override
     public void loadMoreArticles(int pageNum, String key) {
-        addRxSubscribe(
-                mModel.getSearchArticles(key, pageNum)
-                        .compose(RxUtil.rxSchedulerHelper())
-                        .compose(RxUtil.handleResult())
-                        .subscribeWith(new BaseObserver<Articles>(mView, false, false) {
-                            @Override
-                            public void onNext(Articles articles) {
-                                super.onNext(articles);
-                                mView.showMoreArticles(articles.getDatas());
-                            }
-                        })
+        addRxSubscribe(mModel.getSearchArticles(key, pageNum)
+                .compose(RxUtil.rxSchedulerHelper())
+                .compose(RxUtil.handleResult())
+                .subscribeWith(new BaseObserver<Articles>(mView, false, false) {
+                    @Override
+                    public void onNext(Articles articles) {
+                        super.onNext(articles);
+                        mView.showMoreArticles(articles.getDatas());
+                    }
+                })
         );
     }
 
     @Override
     public void collectArticles(int id) {
-        addRxSubscribe(
-                mModel.collectArticles(id)
-                        .compose(RxUtil.rxSchedulerHelper())
-                        .subscribeWith(new BaseObserver<BaseResponse>(mView, false, false) {
-                            @Override
-                            public void onNext(BaseResponse baseResponse) {
-                                mView.showCollectSuccess();
-                            }
-                        })
+        addRxSubscribe(mModel.collectArticles(id)
+                .compose(RxUtil.rxSchedulerHelper())
+                .subscribeWith(new BaseObserver<BaseResponse>(mView, false, false) {
+                    @Override
+                    public void onNext(BaseResponse baseResponse) {
+                        mView.showCollectSuccess();
+                    }
+                })
         );
     }
 
     @Override
     public void unCollectArticles(int id) {
-        addRxSubscribe(
-                mModel.unCollectArticles(id)
-                        .compose(RxUtil.rxSchedulerHelper())
-                        .subscribeWith(new BaseObserver<BaseResponse>(mView, false, false) {
-                            @Override
-                            public void onNext(BaseResponse baseResponse) {
-                                mView.showUnCollectSuccess();
-                            }
-                        })
+        addRxSubscribe(mModel.unCollectArticles(id)
+                .compose(RxUtil.rxSchedulerHelper())
+                .subscribeWith(new BaseObserver<BaseResponse>(mView, false, false) {
+                    @Override
+                    public void onNext(BaseResponse baseResponse) {
+                        mView.showUnCollectSuccess();
+                    }
+                })
         );
     }
 }

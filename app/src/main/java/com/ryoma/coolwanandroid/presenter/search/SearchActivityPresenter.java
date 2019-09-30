@@ -12,7 +12,14 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-
+/**
+ * @author eco-ryoma
+ * @date 2019/09/30
+ * @description SearchActivityPresenter
+ * <p>
+ * Copyright (c) 2019, eco-ryoma.
+ * All rights reserved.
+ */
 public class SearchActivityPresenter extends BasePresenter<SearchActivityContract.View>
         implements SearchActivityContract.Presenter {
 
@@ -23,16 +30,15 @@ public class SearchActivityPresenter extends BasePresenter<SearchActivityContrac
 
     @Override
     public void loadSearchHotKeyData() {
-        addRxSubscribe(
-                mModel.getHotKey()
-                        .compose(RxUtil.rxSchedulerHelper())
-                        .compose(RxUtil.handleResult())
-                        .subscribeWith(new BaseObserver<List<HotKey>>(mView, false, false) {
-                            @Override
-                            public void onNext(List<HotKey> hotKeys) {
-                                mView.showSearchHotKeyFlow(hotKeys);
-                            }
-                        })
+        addRxSubscribe(mModel.getHotKey()
+                .compose(RxUtil.rxSchedulerHelper())
+                .compose(RxUtil.handleResult())
+                .subscribeWith(new BaseObserver<List<HotKey>>(mView, false, false) {
+                    @Override
+                    public void onNext(List<HotKey> hotKeys) {
+                        mView.showSearchHotKeyFlow(hotKeys);
+                    }
+                })
         );
     }
 
