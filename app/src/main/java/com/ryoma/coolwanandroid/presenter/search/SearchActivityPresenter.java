@@ -63,8 +63,9 @@ public class SearchActivityPresenter extends BasePresenter<SearchActivityContrac
 
     @Override
     public void deleteHistory(String key) {
-        if (mModel.deleteOneHistory(key) == 1)
+        if (mModel.deleteOneHistory(key) == 1) {
             mView.showDeleteHistory();
+        }
     }
 
     @Override
