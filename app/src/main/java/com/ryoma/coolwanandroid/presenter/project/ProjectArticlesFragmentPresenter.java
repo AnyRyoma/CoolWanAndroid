@@ -32,75 +32,69 @@ public class ProjectArticlesFragmentPresenter extends BasePresenter<ProjectArtic
 
     @Override
     public void subscribeEvent() {
-        addRxSubscribe(
-                RxBus.getInstance().toObservable(AutoRefreshEvent.class)
-                        .filter(AutoRefreshEvent::isAutoRefresh)
-                        .subscribe(loginEvent -> mView.autoRefresh())
+        addRxSubscribe(RxBus.getInstance().toObservable(AutoRefreshEvent.class)
+                .filter(AutoRefreshEvent::isAutoRefresh)
+                .subscribe(loginEvent -> mView.autoRefresh())
         );
 
-        addRxSubscribe(
-                RxBus.getInstance().toObservable(NoImgEvent.class)
-                        .subscribe(noImgEvent -> mView.autoRefresh())
+        addRxSubscribe(RxBus.getInstance().toObservable(NoImgEvent.class)
+                .subscribe(noImgEvent -> mView.autoRefresh())
         );
     }
 
     @Override
     public void loadProjectArticlesData(int pageNum, int id) {
-        addRxSubscribe(
-                mModel.getProjectArticles(pageNum, id)
-                        .compose(RxUtil.rxSchedulerHelper())
-                        .compose(RxUtil.handleResult())
-                        .subscribeWith(new BaseObserver<Articles>(mView) {
-                            @Override
-                            public void onNext(Articles articles) {
-                                super.onNext(articles);
-                                mView.showProjectArticles(articles.getDatas());
-                            }
-                        })
+        addRxSubscribe(mModel.getProjectArticles(pageNum, id)
+                .compose(RxUtil.rxSchedulerHelper())
+                .compose(RxUtil.handleResult())
+                .subscribeWith(new BaseObserver<Articles>(mView) {
+                    @Override
+                    public void onNext(Articles articles) {
+                        super.onNext(articles);
+                        mView.showProjectArticles(articles.getDatas());
+                    }
+                })
         );
     }
 
     @Override
     public void loadMoreProjectArticlesData(int pageNum, int id) {
-        addRxSubscribe(
-                mModel.getProjectArticles(pageNum, id)
-                        .compose(RxUtil.rxSchedulerHelper())
-                        .compose(RxUtil.handleResult())
-                        .subscribeWith(new BaseObserver<Articles>(mView, false, false) {
-                            @Override
-                            public void onNext(Articles articles) {
-                                super.onNext(articles);
-                                mView.showMoreProjectArticles(articles.getDatas());
-                            }
-                        })
+        addRxSubscribe(mModel.getProjectArticles(pageNum, id)
+                .compose(RxUtil.rxSchedulerHelper())
+                .compose(RxUtil.handleResult())
+                .subscribeWith(new BaseObserver<Articles>(mView, false, false) {
+                    @Override
+                    public void onNext(Articles articles) {
+                        super.onNext(articles);
+                        mView.showMoreProjectArticles(articles.getDatas());
+                    }
+                })
         );
     }
 
     @Override
     public void collectArticles(int id) {
-        addRxSubscribe(
-                mModel.collectArticles(id)
-                        .compose(RxUtil.rxSchedulerHelper())
-                        .subscribeWith(new BaseObserver<BaseResponse>(mView, false, false) {
-                            @Override
-                            public void onNext(BaseResponse baseResponse) {
-                                mView.showCollectSuccess();
-                            }
-                        })
+        addRxSubscribe(mModel.collectArticles(id)
+                .compose(RxUtil.rxSchedulerHelper())
+                .subscribeWith(new BaseObserver<BaseResponse>(mView, false, false) {
+                    @Override
+                    public void onNext(BaseResponse baseResponse) {
+                        mView.showCollectSuccess();
+                    }
+                })
         );
     }
 
     @Override
     public void unCollectArticles(int id) {
-        addRxSubscribe(
-                mModel.unCollectArticles(id)
-                        .compose(RxUtil.rxSchedulerHelper())
-                        .subscribeWith(new BaseObserver<BaseResponse>(mView, false, false) {
-                            @Override
-                            public void onNext(BaseResponse baseResponse) {
-                                mView.showUnCollectSuccess();
-                            }
-                        })
+        addRxSubscribe(mModel.unCollectArticles(id)
+                .compose(RxUtil.rxSchedulerHelper())
+                .subscribeWith(new BaseObserver<BaseResponse>(mView, false, false) {
+                    @Override
+                    public void onNext(BaseResponse baseResponse) {
+                        mView.showUnCollectSuccess();
+                    }
+                })
         );
     }
 }

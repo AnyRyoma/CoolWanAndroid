@@ -29,17 +29,16 @@ public class ProjectFragmentPresenter extends BasePresenter<ProjectFragmentContr
 
     @Override
     public void loadProjectTabData() {
-        addRxSubscribe(
-                mModel.getProjectTab()
-                        .compose(RxUtil.rxSchedulerHelper())
-                        .compose(RxUtil.handleResult())
-                        .subscribeWith(new BaseObserver<List<Tab>>(mView) {
-                            @Override
-                            public void onNext(List<Tab> tabList) {
-                                super.onNext(tabList);
-                                mView.showProjectTab(tabList);
-                            }
-                        })
+        addRxSubscribe(mModel.getProjectTab()
+                .compose(RxUtil.rxSchedulerHelper())
+                .compose(RxUtil.handleResult())
+                .subscribeWith(new BaseObserver<List<Tab>>(mView) {
+                    @Override
+                    public void onNext(List<Tab> tabList) {
+                        super.onNext(tabList);
+                        mView.showProjectTab(tabList);
+                    }
+                })
         );
     }
 }
