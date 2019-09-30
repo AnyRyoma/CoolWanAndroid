@@ -18,6 +18,14 @@ import com.ryoma.coolwanandroid.utils.CommonUtils;
 
 import java.io.File;
 
+/**
+ * @author eco-ryoma
+ * @date 2019/09/30
+ * @description UpdateApkService
+ * <p>
+ * Copyright (c) 2019, eco-ryoma.
+ * All rights reserved.
+ */
 public class UpdateApkService extends Service {
 
     private DataModel mDataModel;

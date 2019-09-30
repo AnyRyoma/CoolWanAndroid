@@ -16,6 +16,14 @@ import com.ryoma.coolwanandroid.utils.RxUtil;
 
 import javax.inject.Inject;
 
+/**
+ * @author eco-ryoma
+ * @date 2019/09/30
+ * @description MainActivityPresenter
+ * <p>
+ * Copyright (c) 2019, eco-ryoma.
+ * All rights reserved.
+ */
 public class MainActivityPresenter extends BasePresenter<MainContract.View> implements MainContract.Presenter {
 
     @Inject

@@ -13,21 +13,32 @@ import java.util.List;
 public interface DbHelper {
     /**
      * 添加历史记录
+     *
+     * @param key 关键词
+     * @return 是否有
      */
     boolean addHistory(String key);
 
     /**
      * 删除某一条历史记录
+     *
+     * @param key 关键词
+     * @return 删除成功与否 返回值
      */
     int deleteOneHistory(String key);
 
     /**
      * 删除所有历史记录
+     *
+     * @return 返回值
      */
     int deleteAllHistory();
 
     /**
      * 查找某一条历史记录是否存在
+     *
+     * @param key 关键词
+     * @return 是否存在
      */
     boolean isExistHistory(String key);
 

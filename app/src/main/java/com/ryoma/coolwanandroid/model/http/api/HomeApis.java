@@ -23,6 +23,8 @@ public interface HomeApis {
     /**
      * 首页banner，即轮播图
      * http://www.wanandroid.com/banner/json
+     *
+     * @return 轮播图列表
      */
     @GET("banner/json")
     Observable<BaseResponse<List<BannerData>>> getBannerData();

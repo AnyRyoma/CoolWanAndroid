@@ -24,12 +24,22 @@ import io.reactivex.Observable;
  */
 public interface NetworkHelper {
 
-    /**
-     * home
-     */
-    Observable<BaseResponse<List<BannerData>>> getBannerData();//获取轮播图的数据
+    //*** home*/
 
-    Observable<BaseResponse<Articles>> getArticles(int pageNum);//获取首页文章
+    /**
+     * 获取轮播图的数据
+     *
+     * @return 轮播图列表
+     */
+    Observable<BaseResponse<List<BannerData>>> getBannerData();
+
+    /**
+     * 获取首页文章
+     *
+     * @param pageNum 每页数目
+     * @return 首页文章
+     */
+    Observable<BaseResponse<Articles>> getArticles(int pageNum);
 
     /**
      * system
@@ -80,8 +90,12 @@ public interface NetworkHelper {
 
     Observable<BaseResponse<Articles>> getSearchArticles(String key, int pageNum); //搜索
 
+    //*** versionUpdate*/
+
     /**
-     * versionUpdate
+     * 获取github上最新的版本信息
+     *
+     * @return 版本信息
      */
-    Observable<Version> getVersionDetail();//获取github上最新的版本信息
+    Observable<Version> getVersionDetail();
 }

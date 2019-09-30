@@ -67,9 +67,10 @@ public class AppModule {
         builder.sslSocketFactory(new SSLSocketCompatFactory(trustAllCert), trustAllCert);
         //设置缓存
         File cacheDir = new File(Constant.PATH_NET_CACHE);
-        Cache cache = new Cache(cacheDir, 1024 * 1024 * 10);//缓存最大大小10m
+        //缓存最大大小10m
+        Cache cache = new Cache(cacheDir, 1024 * 1024 * 10);
         builder.cache(cache);
-        /**
+        /*
          * 这里不使用addNetInterceptor的原因是，网络拦截器比应用拦截器慢执行，
          * 没有网的情况下，直接就ConnectException了，根本不会走到interceptor里面去了。
          */

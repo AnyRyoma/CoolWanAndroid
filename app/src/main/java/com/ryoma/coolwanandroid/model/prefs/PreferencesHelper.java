@@ -9,23 +9,73 @@ package com.ryoma.coolwanandroid.model.prefs;
  * All rights reserved.
  */
 public interface PreferencesHelper {
-    void setNightStyleState(boolean isNight); //保存夜间模式设置
+    /**
+     * 保存夜间模式设置
+     *
+     * @param isNight 是否设置夜间模式
+     */
+    void setNightStyleState(boolean isNight);
 
-    boolean getNightStyleState(); //得到夜间模式的设置
+    /**
+     * 得到夜间模式的设置
+     *
+     * @return 模式设置
+     */
+    boolean getNightStyleState();
 
-    void setNoImgState(boolean isNoImg);//保存无图模式设置
+    /**
+     * 保存无图模式设置
+     *
+     * @param isNoImg 是否无图模式
+     */
+    void setNoImgState(boolean isNoImg);
 
-    boolean getNoImgStyleState();//得到无图模式的设置
+    /**
+     * 得到无图模式的设置
+     *
+     * @return 无图模式
+     */
+    boolean getNoImgStyleState();
 
-    void setAutoCacheState(boolean isAutoCache);//保存自动缓存设置，自动缓存为文章详细的内容
+    /**
+     * 保存自动缓存设置，自动缓存为文章详细的内容
+     *
+     * @param isAutoCache 自动缓存与否
+     */
+    void setAutoCacheState(boolean isAutoCache);
 
-    boolean getAutoCacheState(); //得到自动缓存设置
+    /**
+     * 得到自动缓存设置
+     *
+     * @return 自动缓存
+     */
+    boolean getAutoCacheState();
 
-    void setDownloadId(long id);//保存更新apk的记录
+    /**
+     * 保存更新apk的记录
+     *
+     * @param id 任务id
+     */
+    void setDownloadId(long id);
 
-    long getDownloadId();//得到下载记录
+    /**
+     * 得到下载记录
+     *
+     * @return 任务id
+     */
+    long getDownloadId();
 
-    void setNavCurrentItem(int position);//保存主活动的页面状态
+    /**
+     * 保存主活动的页面状态
+     *
+     * @param position 设置导航页当前position
+     */
+    void setNavCurrentItem(int position);
 
-    int getNavCurrentItem();//得到主活动的页面状态
+    /**
+     * 得到主活动的页面状态
+     *
+     * @return 导航页当前item
+     */
+    int getNavCurrentItem();
 }

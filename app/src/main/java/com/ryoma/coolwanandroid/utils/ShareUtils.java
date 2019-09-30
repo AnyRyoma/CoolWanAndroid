@@ -20,6 +20,14 @@ import com.ryoma.coolwanandroid.R;
  * All rights reserved.
  */
 public class ShareUtils {
+
+    /**
+     * 分享文本
+     *
+     * @param context 上下文
+     * @param text    文本
+     * @param title   标题
+     */
     public static void shareText(Context context, String text, String title) {
         Intent intent = new Intent("android.intent.action.SEND");
         intent.setType("text/plain");
@@ -33,6 +41,13 @@ public class ShareUtils {
         }
     }
 
+    /**
+     * 邮件分享
+     *
+     * @param context 上下文
+     * @param address 邮箱地址
+     * @param title   标题
+     */
     public static void sendEmail(Context context, String address, String title) {
         Intent intent = new Intent("android.intent.action.SENDTO", Uri.parse("mailto:" + address));
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -48,6 +63,9 @@ public class ShareUtils {
 
     /**
      * 打开浏览器
+     *
+     * @param context 上下文
+     * @param address 路径
      */
     public static void openBrowser(Context context, String address) {
         if (TextUtils.isEmpty(address) || address.startsWith("file://")) {
@@ -66,10 +84,14 @@ public class ShareUtils {
 
     /**
      * 复制字符串
+     *
+     * @param context 上下文
+     * @param text    被复制的文本
      */
     public static void copyString(Context context, String text) {
-        if (TextUtils.isEmpty(text))
+        if (TextUtils.isEmpty(text)) {
             return;
+        }
         ClipboardManager mClipboardManager = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
         assert mClipboardManager != null;
         mClipboardManager.setPrimaryClip(ClipData.newPlainText(null, text));

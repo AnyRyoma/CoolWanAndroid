@@ -22,6 +22,14 @@ import javax.inject.Inject;
 
 import io.reactivex.Observable;
 
+/**
+ * @author eco-ryoma
+ * @date 2019/09/30
+ * @description DataModel
+ * <p>
+ * Copyright (c) 2019, eco-ryoma.
+ * All rights reserved.
+ */
 public class DataModel implements NetworkHelper, DbHelper, PreferencesHelper {
 
     private NetworkHelper mNetworkHelper;
@@ -36,6 +44,7 @@ public class DataModel implements NetworkHelper, DbHelper, PreferencesHelper {
         mPreferencesHelper = preferencesHelper;
     }
 
+    @Override
     public Observable<BaseResponse<List<BannerData>>> getBannerData() {
         return mNetworkHelper.getBannerData();
     }

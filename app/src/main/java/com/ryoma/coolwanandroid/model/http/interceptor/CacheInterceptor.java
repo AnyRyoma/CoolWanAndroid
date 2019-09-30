@@ -32,8 +32,9 @@ public class CacheInterceptor implements Interceptor {
         Response response = chain.proceed(request);
         if (isNetConnection) {
             int maxAge = 0;
+            // 有网络时,不缓存
             response = response.newBuilder()
-                    .header("Cache-Control", "public, max-age=" + maxAge)// 有网络时,不缓存
+                    .header("Cache-Control", "public, max-age=" + maxAge)
                     .removeHeader("Pragma")
                     .build();
         } else {

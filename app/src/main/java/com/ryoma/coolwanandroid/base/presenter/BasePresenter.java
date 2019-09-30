@@ -11,18 +11,17 @@ import io.reactivex.disposables.Disposable;
 /**
  * @author eco-ryoma
  * @date 2019/7/29
- * @description
- * <p>
+ * @description <p>
  * Copyright (c) 2019, eco-ryoma.
  * All rights reserved.
  */
-public class BasePresenter <T extends BaseView> implements IPresenter<T> {
+public class BasePresenter<T extends BaseView> implements IPresenter<T> {
     protected T mView;
     protected DataModel mModel;
     private CompositeDisposable mCompositeDisposable;
 
     @Inject
-    public BasePresenter(DataModel model){
+    public BasePresenter(DataModel model) {
         mModel = model;
     }
 
@@ -39,14 +38,14 @@ public class BasePresenter <T extends BaseView> implements IPresenter<T> {
     @Override
     public void detachView() {
         mView = null;
-        if(mCompositeDisposable != null){
+        if (mCompositeDisposable != null) {
             mCompositeDisposable.clear();
         }
     }
 
     @Override
     public void addRxSubscribe(Disposable disposable) {
-        if(mCompositeDisposable == null){
+        if (mCompositeDisposable == null) {
             mCompositeDisposable = new CompositeDisposable();
         }
         mCompositeDisposable.add(disposable);
